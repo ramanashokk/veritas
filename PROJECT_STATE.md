@@ -14,7 +14,7 @@ Current Version: v0.1.0
 
 Current Milestone:
 
-IMP-009 (In Progress)
+IMP-010 (In Progress)
 
 ---
 
@@ -84,19 +84,25 @@ Frontend (Planned)
 
 # In Progress
 
-None
+IMP-010
+
+Minimal Web UI
+
+Goal:
+
+Expose the first minimal browser-based interface that allows users to submit a scientific claim and receive a structured verification result from the existing API.
 
 ---
 
 # Next Milestone
 
-IMP-009
+IMP-011
 
-REST API (Minimal)
+Potential follow-up enhancements
 
 Goal:
 
-Expose the first public endpoint that allows users to submit a scientific claim and receive a structured verification result.
+Refine the user experience and improve error handling, loading states, and result presentation.
 
 ---
 
@@ -156,9 +162,7 @@ Known limitations:
 
 • Verification uses Version 1 thresholds.
 
-• No REST API.
-
-• No frontend.
+• No frontend experience beyond the minimal verification UI.
 
 • No caching.
 

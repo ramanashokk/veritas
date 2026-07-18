@@ -217,20 +217,21 @@ Major design decisions:
 
 Current milestone:
 
-IMP-009
+IMP-010
 
-Minimal REST API
+Minimal Web UI
 
 Goal:
 
-Deliver the first end-to-end API that allows users to submit a claim and receive a structured verification result.
+Deliver the first minimal browser-based experience that allows users to submit a claim and receive a structured verification result from the existing API.
 
 Implemented:
 
-- REST verification endpoint at /api/v1/verify
-- Thin controller layer for HTTP handling
-- Service layer orchestrating search, evidence building, consensus, and verification
-- Structured DTOs and exception handling
+- Minimal React/Next.js single-page interface
+- Claim textarea and verify button
+- Fetch-based integration with /api/v1/verify
+- Loading, empty, success, and error state handling
+- Structured display for status, confidence, consensus, and evidence
 
 ---
 
