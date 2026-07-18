@@ -219,6 +219,36 @@ Evidence Builder
 
 The Search Engine never needs to know provider-specific implementation details. That separation allows PubMed, OpenAlex, Crossref, Europe PMC, user PDFs, and other future providers to be plugged in behind the same interface without changing the core architecture.
 
+### Provider SDK
+
+The provider SDK defines a reusable structure for implementing research-source integrations. Each provider is split into a small set of responsibilities so that networking, parsing, and mapping remain isolated.
+
+The flow is:
+
+```
+Search Engine
+  ↓
+Provider
+  ↓
+Client
+  ↓
+Parser
+  ↓
+Mapper
+  ↓
+SearchResult
+```
+
+Responsibilities are intentionally narrow:
+
+- The Search Engine remains provider-agnostic and only knows the shared interface.
+- The Provider coordinates the flow and returns normalized results.
+- The Client handles HTTP communication, timeouts, retries, and response retrieval.
+- The Parser converts raw provider payloads into intermediate Python objects.
+- The Mapper converts those objects into SearchResult instances.
+
+This separation keeps provider implementations isolated and makes it straightforward to add new providers such as OpenAlex, Crossref, Europe PMC, or Semantic Scholar without changing the engine contract.
+
 ### Design Notes
 
 Version 1 intentionally simplifies the verification process. It assumes that consensus confidence and a fixed threshold are sufficient for a first-pass verdict. It does not yet model evidence quality, source reliability, or domain-specific policy nuance. The main extension points for Version 2 are configurable thresholds, policy-driven rules, and richer evidence metadata.
