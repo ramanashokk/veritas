@@ -239,3 +239,8 @@ Implemented:
 The next phase shifts Veritas from architecture construction to product delivery.
 
 Future milestones should prioritize delivering complete user workflows over adding isolated backend capabilities.
+## Note
+
+The implementation of IMP-003 (Source Registry) was completed as part of the IMP-004 commit during early project development.
+
+Subsequent milestones follow a one-milestone-per-commit convention.
