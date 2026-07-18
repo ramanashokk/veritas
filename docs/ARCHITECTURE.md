@@ -163,6 +163,22 @@ Responsibilities of the builder:
 
 The builder does not use AI, external APIs, or databases. It works entirely with in-memory demo data and keeps the evaluator replaceable so future strategies can be introduced without changing the surrounding architecture.
 
+### Consensus Engine
+
+The Consensus Engine is the next stage in the pipeline. It accepts an EvidenceSummary and produces a deterministic ConsensusResult that describes the current strength of the evidence for a claim.
+
+The flow is:
+
+```
+EvidenceSummary
+  ↓
+Consensus Engine
+  ↓
+ConsensusResult
+```
+
+The engine is intentionally modular. The public interface remains stable while the underlying strategy can change over time. Version 1 uses a simple rule-based approach with no weighting beyond support and contradict counts. Future versions can incorporate evidence quality, source reliability, recency, and reproducibility without changing the public interface.
+
 ---
 
 ## Request Flow

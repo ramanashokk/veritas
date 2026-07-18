@@ -32,7 +32,9 @@ DOC-012 Open Questions
 
 # Architecture Decisions
 
-(To be added)
+- [ADR-001: Evidence-First Architecture](adr/ADR-001-Evidence-First-Architecture.md)
+- [ADR-002: Layered Verification Pipeline](adr/ADR-002-Layered-Verification-Pipeline.md)
+- [ADR-003: Source-Agnostic Architecture](adr/ADR-003-Source-Agnostic-Architecture.md)
 
 ---
 
