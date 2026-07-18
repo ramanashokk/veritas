@@ -199,6 +199,26 @@ VerificationResult
 
 Consensus estimates what the evidence collectively indicates. Verification translates that consensus into a user-facing verdict. Future versions may incorporate jurisdiction-specific policies, domain-specific thresholds, regulatory verification rules, and configurable confidence thresholds without changing the engine interface.
 
+### Search Engine
+
+The Search Engine provides the first source-agnostic retrieval step in the evidence pipeline. A user query is passed into the engine, which distributes it to one or more search providers and merges their normalized results.
+
+The flow is:
+
+```
+User Query
+  ↓
+Search Engine
+  ↓
+Search Providers
+  ↓
+Normalized Search Results
+  ↓
+Evidence Builder
+```
+
+The Search Engine never needs to know provider-specific implementation details. That separation allows PubMed, OpenAlex, Crossref, Europe PMC, user PDFs, and other future providers to be plugged in behind the same interface without changing the core architecture.
+
 ### Design Notes
 
 Version 1 intentionally simplifies the verification process. It assumes that consensus confidence and a fixed threshold are sufficient for a first-pass verdict. It does not yet model evidence quality, source reliability, or domain-specific policy nuance. The main extension points for Version 2 are configurable thresholds, policy-driven rules, and richer evidence metadata.
