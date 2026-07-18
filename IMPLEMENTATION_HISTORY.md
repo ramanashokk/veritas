@@ -215,7 +215,7 @@ Major design decisions:
 
 # Current Focus
 
-Next milestone:
+Current milestone:
 
 IMP-009
 
@@ -224,6 +224,13 @@ Minimal REST API
 Goal:
 
 Deliver the first end-to-end API that allows users to submit a claim and receive a structured verification result.
+
+Implemented:
+
+- REST verification endpoint at /api/v1/verify
+- Thin controller layer for HTTP handling
+- Service layer orchestrating search, evidence building, consensus, and verification
+- Structured DTOs and exception handling
 
 ---
 
