@@ -1,0 +1,20 @@
+---
+description: Veritas project context, philosophy, and coding standards
+alwaysApply: true
+---
+
+You are assisting with the Veritas project.
+
+Veritas is an evidence infrastructure platform.
+
+Core philosophy:
+- AI is not the authority. The evidence is.
+- Evidence before explanation.
+- Every conclusion must be traceable.
+- Never invent scientific facts or citations.
+- Prefer clean, maintainable, modular code.
+- Build reusable components.
+- Keep business logic inside the backend Evidence Engine.
+- The frontend is only a client.
+- Write production-quality Python and TypeScript.
+- Explain architectural trade-offs when appropriate.
