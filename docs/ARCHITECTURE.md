@@ -179,6 +179,30 @@ ConsensusResult
 
 The engine is intentionally modular. The public interface remains stable while the underlying strategy can change over time. Version 1 uses a simple rule-based approach with no weighting beyond support and contradict counts. Future versions can incorporate evidence quality, source reliability, recency, and reproducibility without changing the public interface.
 
+### Verification Engine
+
+The Verification Engine translates the consensus output into a user-facing verdict. It takes a ConsensusResult and produces a VerificationResult that is easier to present to an end user.
+
+The flow is:
+
+```
+EvidenceSummary
+  ↓
+Consensus Engine
+  ↓
+ConsensusResult
+  ↓
+Verification Engine
+  ↓
+VerificationResult
+```
+
+Consensus estimates what the evidence collectively indicates. Verification translates that consensus into a user-facing verdict. Future versions may incorporate jurisdiction-specific policies, domain-specific thresholds, regulatory verification rules, and configurable confidence thresholds without changing the engine interface.
+
+### Design Notes
+
+Version 1 intentionally simplifies the verification process. It assumes that consensus confidence and a fixed threshold are sufficient for a first-pass verdict. It does not yet model evidence quality, source reliability, or domain-specific policy nuance. The main extension points for Version 2 are configurable thresholds, policy-driven rules, and richer evidence metadata.
+
 ---
 
 ## Request Flow
