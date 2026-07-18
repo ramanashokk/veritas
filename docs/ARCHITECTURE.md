@@ -122,6 +122,47 @@ The backend now includes a small domain layer under the app models package for t
 
 These models are intentionally pure and immutable. They describe what Veritas knows and how it relates, without embedding APIs, persistence, or external integration details.
 
+### Source Registry
+
+Veritas also includes an in-memory Source Registry under the app sources package. This layer is the canonical catalog of evidence sources the platform knows about.
+
+Responsibilities of the registry:
+
+- register sources
+- retrieve source metadata by identifier
+- list all available sources
+- enable or disable sources
+- look up a source by id
+
+The registry is intentionally simple and replaceable. It stores metadata only, without fetching data, making API calls, or touching a database. Future adapters can plug into this catalog once they are implemented.
+
+### Evidence Builder
+
+The Evidence Builder is the first deterministic transformation step in the evidence pipeline. It takes a claim and a set of observations and turns them into evidence links.
+
+The flow is:
+
+```
+Document
+  ↓
+Observation
+  ↓
+EvidenceBuilder
+  ↓
+EvidenceLink
+  ↓
+EvidenceSummary
+```
+
+Responsibilities of the builder:
+
+- accept a claim and a list of observations
+- evaluate each observation against the claim
+- produce evidence links for later use by the verification engine
+- derive a provisional evidence summary for the claim
+
+The builder does not use AI, external APIs, or databases. It works entirely with in-memory demo data and keeps the evaluator replaceable so future strategies can be introduced without changing the surrounding architecture.
+
 ---
 
 ## Request Flow
